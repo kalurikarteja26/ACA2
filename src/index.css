@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..900;1,9..40,400..900&family=Work+Sans:ital,wght@0,300..900;1,300..900&family=JetBrains+Mono:wght@400;600;800&display=swap');
+
+:root {
+  /* ── Sapphire & Frost: Shades of Blue and White (Light Mode) ── */
+  --primary-brand: #0A2540;        /* Deep Maritime Navy */
+  --secondary-bg: #F0F6FF;         /* Crisp Ice Blue Tint */
+  --accent: #2563EB;               /* Royal Sapphire Blue */
+  --accent-light: #3B82F6;         /* Radiant Azure Blue */
+  --accent-dark: #1D4ED8;          /* Deep Cobalt Blue */
+  --accent-glow: rgba(37, 99, 235, 0.20);
+  --cards: #FFFFFF;                /* Crisp Pure White */
+  --background: #F8FAFD;           /* Ultra-clean Frost White */
+  --text-primary: #0A2540;         /* Deep Navy Text */
+  --text-secondary: #334E68;       /* Refined Ocean Slate */
+  --text-muted: #627D98;           /* Muted Blue Slate */
+  --border: #DBEAFE;               /* Subtle Frost Blue Border */
+  --border-dashed: #93C5FD;        /* Soft Royal Dashed Border */
+  
+  --hero-bg: linear-gradient(135deg, #0A2540 0%, #1E3A8A 55%, #2563EB 100%); /* Royal Navy to Sapphire Gradient */
+  --hero-text: #FFFFFF;            /* 100% Crisp White */
+  --hero-subtext: #DBEAFE;         /* Ice Blue Subtext */
+
+  --btn-primary-bg: #2563EB;
+  --btn-primary-text: #FFFFFF;
+
+  --success: #0284C7;
+  --success-bg: #F0F9FF;
+  --warning: #F59E0B;
+  --warning-bg: #FFFBEB;
+  --error: #EF4444;
+  --error-bg: #FEF2F2;
+
+  --font-sans: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+
+  --shadow-subtle: 0 1px 3px rgba(10, 37, 64, 0.05);
+  --shadow-md: 0 4px 16px rgba(10, 37, 64, 0.08);
+  --shadow-lg: 0 12px 32px rgba(37, 99, 235, 0.12);
+}
+
+/* ── Deep Oceanic & Celestial: Shades of Blue and White (Dark Mode) ── */
+[data-theme='dark'], .theme-dark {
+  --primary-brand: #FFFFFF;        /* Pure High Contrast White */
+  --secondary-bg: #0F1E36;         /* Deep Oceanic Layer */
+  --accent: #38BDF8;               /* Radiant Celestial Sky Blue */
+  --accent-light: #60A5FA;         /* Soft Electric Blue */
+  --accent-dark: #2563EB;          /* Royal Sapphire Blue */
+  --accent-glow: rgba(56, 189, 248, 0.28);
+  --cards: #0B1528;                /* Midnight Navy Card */
+  --background: #050B14;           /* Deepest Obsidian Navy */
+  --text-primary: #FFFFFF;         /* Crisp White */
+  --text-secondary: #CBD5E1;       /* Soft Ice Blue Text */
+  --text-muted: #93C5FD;           /* Periwinkle Slate */
+  --border: #1E3A5F;               /* Midnight Sapphire Border */
+  --border-dashed: #2563EB;
+  
+  --hero-bg: linear-gradient(135deg, #091322 0%, #0F2547 60%, #1E3A8A 100%);
+  --hero-text: #FFFFFF;
+  --hero-subtext: #BFDBFE;
+
+  --btn-primary-bg: #2563EB;
+  --btn-primary-text: #FFFFFF;
+
+  --success: #38BDF8;
+  --success-bg: rgba(56, 189, 248, 0.15);
+  --warning: #FBBF24;
+  --warning-bg: rgba(251, 191, 36, 0.15);
+  --error: #F87171;
+  --error-bg: rgba(248, 113, 113, 0.15);
+
+  --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 12px 32px rgba(14, 165, 233, 0.20);
+}
+
+[data-theme='light'], .theme-light {
+  --primary-brand: #0A2540;
+  --secondary-bg: #F0F6FF;
+  --accent: #2563EB;
+  --accent-light: #3B82F6;
+  --accent-dark: #1D4ED8;
+  --accent-glow: rgba(37, 99, 235, 0.20);
+  --cards: #FFFFFF;
+  --background: #F8FAFD;
+  --text-primary: #0A2540;
+  --text-secondary: #334E68;
+  --text-muted: #627D98;
+  --border: #DBEAFE;
+  --border-dashed: #93C5FD;
+  
+  --hero-bg: linear-gradient(135deg, #0A2540 0%, #1E3A8A 55%, #2563EB 100%);
+  --hero-text: #FFFFFF;
+  --hero-subtext: #DBEAFE;
+
+  --btn-primary-bg: #2563EB;
+  --btn-primary-text: #FFFFFF;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--background);
+  color: var(--text-primary);
+  line-height: 1.5;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+  
+  /* ── High-Visibility Architectural Backdrop Mesh ── */
+  background-image: 
+    radial-gradient(circle at 15% 15%, var(--accent-glow) 0%, transparent 45%),
+    radial-gradient(circle at 85% 85%, rgba(15, 23, 42, 0.12) 0%, transparent 45%),
+    radial-gradient(var(--accent-glow) 1.5px, transparent 1.5px);
+  background-size: 100% 100%, 100% 100%, 48px 48px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+/* ── ACA Card System ── */
+.aca-card {
+  background-color: var(--cards);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.aca-card:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent);
+}
+
+.datanova-grid-card {
+  background-color: var(--cards);
+  border: 1.5px dashed var(--border-dashed);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.datanova-grid-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+/* ── Buttons ── */
+.btn-primary {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  border: none;
+  padding: 12px 24px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 8px var(--accent-glow);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+  box-shadow: 0 4px 14px var(--accent-glow);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  padding: 12px 24px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: var(--cards);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ── Forms & Inputs ── */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-label {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--primary-brand);
+}
+
+.form-input, .form-select {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border);
+  background-color: var(--secondary-bg);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.form-input:focus, .form-select:focus {
+  border-color: var(--accent);
+  background-color: var(--cards);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+/* ── Custom Scrollbar ── */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
